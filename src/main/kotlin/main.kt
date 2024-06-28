@@ -26,4 +26,16 @@ fun main() {
         .build()
 
     FirebaseMessaging.getInstance().send(message)
+
+        val messagePost = Message.builder()
+        .putData("action", "POST")
+        .putData("content", """{
+            "postId": 10,
+            "postAuthor": "Ivanov",
+            "postContent": "\nText Post"
+        }""".trimIndent())
+        .setToken(token)
+        .build()
+
+    FirebaseMessaging.getInstance().send(messagePost)
 }
